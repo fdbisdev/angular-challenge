@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '../../types/location.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-card',
   standalone: true,
-  imports: [],
+  selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrls: ['./card.component.scss'],
+  imports: [CommonModule, CardComponent]
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
+  @Input() card!: Location;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
