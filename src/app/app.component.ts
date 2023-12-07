@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { CommonModule } from '@angular/common';
+import { LegendComponent } from './components/legend/legend.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     HeaderComponent,
     FormsComponent,
+    LegendComponent,
     CommonModule
   ]
 })
