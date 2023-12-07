@@ -1,15 +1,33 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Location } from './types/location.interface';
+import { GetUnitsService } from './services/get-units.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { FormsComponent } from './components/forms/forms.component';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [CommonModule, RouterOutlet, HeaderComponent]
+  styleUrls: ['./app.component.scss'],
+  providers: [GetUnitsService],
+  imports: [
+    HttpClientModule,
+    HeaderComponent,
+    FormsComponent,
+    CommonModule
+  ]
 })
 export class AppComponent {
-  title = 'desafio-smfit';
+  showList = new BehaviorSubject(false);
+  unitsList: Location[] = [];
+
+  constructor(private unitService: GetUnitsService) { }
+
+  onSubmit() {
+    this.unitsList = this.unitService.getFilteredUnits();
+    this.showList.next(true);
+  }
 }
