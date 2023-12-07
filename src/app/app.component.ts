@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { CommonModule } from '@angular/common';
 import { LegendComponent } from './components/legend/legend.component';
+import { CardsListComponent } from './components/cards-list/cards-list.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,9 @@ import { LegendComponent } from './components/legend/legend.component';
     HeaderComponent,
     FormsComponent,
     LegendComponent,
-    CommonModule
+    CommonModule,
+    CardsListComponent,
+    FooterComponent
   ]
 })
 export class AppComponent {
